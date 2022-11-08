@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:proyecto/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'Rest.dart';
+
 /*void main(){
   runApp(MaterialApp(
     routes: {
@@ -9,7 +10,6 @@ import 'Rest.dart';
     },
   ));
 }*/
-
 class Soporte extends StatefulWidget {
   @override
   soporteT createState() => soporteT();
