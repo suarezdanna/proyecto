@@ -11,16 +11,15 @@ class Servicios extends StatefulWidget {
 }
 
 class Serviciosf extends State<Servicios> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.green),
-        home: Scaffold(
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: Scaffold(
         appBar: AppBar(
-        title: const Text("Administración"),
-    ),
-    ),
+          title: const Text("Administración"),
+        ),
+      ),
     );
-}
+  }
 }

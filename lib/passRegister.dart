@@ -7,8 +7,6 @@ import 'package:proyecto/main.dart';
 import 'Inicio.dart';
 import 'package:flutter/cupertino.dart';
 
-
-
 class passRegister extends StatefulWidget {
   @override
   pasoPregistro createState() => pasoPregistro();
@@ -25,8 +23,5 @@ class pasoPregistro extends State<passRegister> {
         ),
       ),
     );
-
-
-
-}
+  }
 }

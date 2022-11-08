@@ -26,55 +26,52 @@ class LoginApp extends State<login> {
   TextEditingController User = TextEditingController();
   TextEditingController Password = TextEditingController();
   final LocalAuthentication auth = LocalAuthentication();
-  String idUser='';
+  String idUser = '';
 
   validarDatos() async {
     bool flag = false;
     try {
       CollectionReference ref =
-      FirebaseFirestore.instance.collection("Usuario");
+          FirebaseFirestore.instance.collection("Usuario");
       QuerySnapshot Usuario = await ref.get();
 
       if (Usuario.docs.length != 0) {
         for (var cursor in Usuario.docs) {
           //buscar datos en bd
-          print ("bdd");
+          print("bdd");
           // mensaje('Usuario', cursor.get('User'));
           if (User.text == cursor.get('User')) {
-            print ("user");
+            print("user");
             // mensaje('Mensaje', 'Dato encontrado');
-            if (Password.text == cursor.get('password'));
-            print ("contra");
-            idUser= cursor.id.toString();
-            flag=true;
-            if(cursor.get("Rol")=='Admin'){
+            if (Password.text == cursor.get('password')) ;
+            print("contra");
+            idUser = cursor.id.toString();
+            flag = true;
+            if (cursor.get("Rol") == 'Admin') {
               print("Información");
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomePage()),);
-            }else{
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            } else {
               print("Pantalla de usuario");
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Soporte()),);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Soporte()),
+              );
             }
 
-
-
             print(cursor.id);
-
-
-
-
           }
         }
       }
       if (!flag) {
         mensajeG('Mensaje', 'dato no encontrado');
       }
-  } catch (e) {
-  mensajeG('Error', e.toString());
+    } catch (e) {
+      mensajeG('Error', e.toString());
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -136,13 +133,12 @@ class LoginApp extends State<login> {
                 height: 50, //alto
                 width: 240, //ancho
                 decoration: BoxDecoration(
-                  //boton de registro
+                    //boton de registro
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(20)),
                 child: TextButton(
-                  onPressed: () async{
+                  onPressed: () async {
                     await validarDatos(); //metodo para validar datos
-
 
                     /* Navigator.push(context,
                       MaterialPageRoute(builder: (_) =>
@@ -154,7 +150,7 @@ class LoginApp extends State<login> {
                   ),
                 ),
               ),
-             /* Container(
+              /* Container(
                 height: 50, //alto
                 width: 240, //ancho
                 decoration: BoxDecoration(
@@ -174,7 +170,7 @@ class LoginApp extends State<login> {
                   ),
                 ),
               ),*/
-           /*   Container(
+              /*   Container(
                 height: 50, //alto
                 width: 240, //ancho
                 decoration: BoxDecoration(
@@ -194,7 +190,8 @@ class LoginApp extends State<login> {
               Padding(
                 padding: EdgeInsets.all(10),
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom( //boton huella
+                  style: ElevatedButton.styleFrom(
+                    //boton huella
                     minimumSize: Size(50, 50),
                     primary: Colors.green,
                   ),
@@ -224,19 +221,17 @@ class LoginApp extends State<login> {
             actions: <Widget>[
               ElevatedButton(
                 onPressed: () async {
-                  String idU=await userId;
+                  String idU = await userId;
                   Navigator.push(context,
                       MaterialPageRoute(builder: (_) => Geolocalizacion(idU)));
-
                 },
                 child:
-                Text("Aceptar", style: TextStyle(color: Colors.blueGrey)),
+                    Text("Aceptar", style: TextStyle(color: Colors.blueGrey)),
               )
             ],
           );
         });
   }
-
 
   void mensajeG(String titulo, String mess) {
     showDialog(
@@ -303,11 +298,4 @@ class LoginApp extends State<login> {
     }
     return authenticated;
   }
-
-
-
-
-
-
-
 }

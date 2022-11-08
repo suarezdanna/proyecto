@@ -5,16 +5,16 @@ import 'firebase_options.dart';
 import 'Registro.dart';
 import 'login.dart';
 
-
-
 //flutter upgrade --force
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,);
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,9 @@ class clase extends StatefulWidget {
 }
 
 class layout extends State<clase> {
- // const MyApp({Key? key}) : super(key: key);
+  // const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
@@ -47,15 +46,15 @@ class layout extends State<clase> {
                   child: const Text(
                     'AGRISTORE.SAS',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Colors.red,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
                   'AgriStore es una empresa que se dedica a la distribución de frutas y verduras,'
-                      ' en el municipio de ubaté, principalmente de la plaza de mercado.'
-                      ' ',
+                  ' en el municipio de ubaté, principalmente de la plaza de mercado.'
+                  ' ',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -72,32 +71,34 @@ class layout extends State<clase> {
         ],
       ),
     );
-    Color color = Theme
-        .of(context)
-        .primaryColorDark;
+    Color color = Theme.of(context).primaryColorDark;
 
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-
-          IconButton(onPressed: (){
-            print("Inicio de sesión");
-            Navigator.push(context, MaterialPageRoute(builder: (_) => login()));
-    }, icon: Icon(Icons.account_circle)),
-
-        IconButton(onPressed: (){
-          print("Registrarse");
-          Navigator.push(context,
-              MaterialPageRoute(builder: (_) => Registro()));
-        }, icon: Icon(Icons.app_registration)),
-
-        IconButton(onPressed: (){
-          print("Información");
-          Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Geolocalizacion('')),);
-        }, icon: Icon(Icons.location_on))
-
-
+        IconButton(
+            onPressed: () {
+              print("Inicio de sesión");
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => login()));
+            },
+            icon: Icon(Icons.account_circle)),
+        IconButton(
+            onPressed: () {
+              print("Registrarse");
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => Registro()));
+            },
+            icon: Icon(Icons.app_registration)),
+        IconButton(
+            onPressed: () {
+              print("Información");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Geolocalizacion('')),
+              );
+            },
+            icon: Icon(Icons.location_on))
       ],
     );
 
@@ -105,23 +106,21 @@ class layout extends State<clase> {
       padding: EdgeInsets.all(32),
       child: Text(
         'El municipio de ubaté es reconocido por ser un sector agricola y lechero,'
-            ' de esta manera AgriStore brinda un servicio de domicilios a la puerta de su casa.'
-            ' para poder adquirir el servicio es necesario registrarse para proteger sus datos, '
-            'tambien puede compartir esta información con sus conocidos, ¡HAGAMOS DE AGRISTORE NUESTRO HOGAR.',
+        ' de esta manera AgriStore brinda un servicio de domicilios a la puerta de su casa.'
+        ' para poder adquirir el servicio es necesario registrarse para proteger sus datos, '
+        'tambien puede compartir esta información con sus conocidos, ¡HAGAMOS DE AGRISTORE NUESTRO HOGAR.',
         softWrap: true,
       ),
     );
 
     return MaterialApp(
       title: '¡Bienvenido AgriStore lo espera!',
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.red),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('¡BIENVENIDO!'
-          ),
+          title: const Text('¡BIENVENIDO!'),
         ),
         body: ListView(
-
           children: [
             Image.asset(
               'imgs/AgriStore.png',
@@ -151,11 +150,7 @@ class layout extends State<clase> {
           child: Text(
             label,
             style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                color: color
-            ),
-
+                fontSize: 12, fontWeight: FontWeight.w400, color: color),
           ),
         ),
       ],
@@ -168,7 +163,7 @@ class layout extends State<clase> {
 /************************************************Tercer layout**********************/
 //Soporte.dart
 /************************************Cuarto layout*******************************/
-class ShareCom extends StatelessWidget{
+class ShareCom extends StatelessWidget {
   const ShareCom({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -180,10 +175,7 @@ class ShareCom extends StatelessWidget{
         ),
       ),
     );
-
-
   }
-
 }
 
 /****************************************+***********************************/
